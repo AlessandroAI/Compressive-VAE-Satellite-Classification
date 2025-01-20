@@ -79,21 +79,54 @@ PatternNet: Urban and suburban satellite image dataset.
 
 ## Results
 
-### Metrics
+### Results
 
-BPP (Bits Per Pixel)
+#### Key Metrics
+We evaluated the performance of various neural compression models and classification architectures using the EuroSAT dataset. Key metrics include:
+- **BPP (Bits Per Pixel)**: Measures compression efficiency.
+- **PSNR (Peak Signal-to-Noise Ratio)**: Indicates reconstruction quality.
+- **F1 Score**: Reflects classification performance.
+- **RDAI (Rate-Distortion-Accuracy Index)**: A composite metric balancing compression, reconstruction, and classification.
 
-PSNR (Peak Signal-to-Noise Ratio)
+| **Model**           | **Classifier** | **Accuracy** | **F1**  | **BPP**  | **PSNR**  | **RDAI**  |
+|---------------------|----------------|--------------|---------|----------|-----------|-----------|
+| bmshj2018 hyperprior | Transformer    | 0.937        | 0.937   | 0.2816   | 49.14     | 0.861     |
+| cheng2020 attn       | Transformer    | 0.9487       | 0.9487  | 0.2615   | 44.94     | 0.890     |
+| mbt2018 mean         | Transformer    | 0.9387       | 0.9387  | 0.4037   | 45.4      | 0.884     |
 
-F1 Score
+#### Highlights
+1. **Model Comparisons**:
+   - Fine-tuned **cheng2020 attn** achieved the highest RDAI score (0.890), balancing compression and classification performance.
+   - **bmshj2018 hyperprior** demonstrated excellent reconstruction quality (PSNR: 49.14) and high F1 scores (0.937).
 
-Rate Distortion Accuracy Index (RDAI)
+2. **Performance Over JPEG**:
+   - Neural compression models outperformed JPEG compression across all metrics, achieving higher classification accuracy at lower bit rates.
 
-### Visualizations
+3. **Latent Space Insights**:
+   - **t-SNE visualizations** reveal clear class separations in the latent space, particularly with **cheng2020 attn**, indicating effective feature encoding.
 
-t-SNE plots of latent spaces highlight clustering and separability.
+#### Visualizations
+- **Reconstruction Quality**: Metrics demonstrate significant improvement in PSNR and F1 scores with neural compression models compared to traditional methods.
 
-Example reconstruction images are provided in the results/reconstructed_images/ folder.
+- **t-SNE Visualization**:
+  Below is a t-SNE visualization for the latent spaces of **bmshj2018 hyperprior**:
+
+  ![t-SNE Visualization](path/to/tsne_visualization.png)
+
+- **Reconstructed Images**:
+  Example comparison of original and reconstructed images:
+
+  | Original Image                      | Reconstructed Image                  |
+  |-------------------------------------|--------------------------------------|
+  | ![Original](path/to/original.png)   | ![Reconstructed](path/to/reconstructed.png) |
+
+#### Ablation Studies
+- Variations in loss weighting parameters (e.g., λclass, λbpp) show:
+  - Excessive emphasis on compression reduces reconstruction and classification quality.
+  - Balanced weighting achieves the best trade-offs, with λrec = 10, λclass = 1, λbpp = 0.075 yielding the highest RDAI.
+
+
+
 
 ## Citation
 
