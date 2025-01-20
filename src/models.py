@@ -21,7 +21,7 @@ class TransformerClassifier(nn.Module):
         super(TransformerClassifier, self).__init__()
         self.embedding = nn.Linear(input_dim, 256)
         self.positional_encoding = PositionalEncoding(256)
-        encoder_layer = nn.TransformerEncoderLayer(d_model=256, nhead=8)
+        encoder_layer = nn.TransformerEncoderLayer(d_model=256, nhead=8, dim_feedforward=512, dropout=0.1)
         self.transformer = nn.TransformerEncoder(encoder_layer, num_layers=6)
         self.classifier = nn.Linear(256, num_classes)
 
@@ -30,6 +30,22 @@ class TransformerClassifier(nn.Module):
         x = self.transformer(x)
         x = x.mean(dim=1)  # Global average pooling
         return self.classifier(x)
+
+class MLPClassifier(nn.Module):
+    def __init__(self, input_dim, num_classes):
+        super(MLPClassifier, self).__init__()
+        self.model = nn.Sequential(
+            nn.Linear(input_dim, 256),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(256, 128),
+            nn.ReLU(),
+            nn.Dropout(0.2),
+            nn.Linear(128, num_classes)
+        )
+
+    def forward(self, x):
+        return self.model(x)
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_len=5000):
