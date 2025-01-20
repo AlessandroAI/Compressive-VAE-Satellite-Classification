@@ -13,15 +13,23 @@ from skimage.metrics import peak_signal_noise_ratio as psnr
 
 # Data Loading
 
-def load_dataset(batch_size=32, root="data"):
-    """Load the EuroSAT dataset and create dataloaders."""
+def load_dataset(dataset_name, batch_size=32, root="data"):
+    """Load datasets dynamically based on the name."""
     transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Resize((256, 256))
+        transforms.Resize((256, 256))  # Resize for consistency
     ])
 
-    # Load the dataset
-    dataset = datasets.EuroSAT(root=root, download=True, transform=transform)
+    if dataset_name.lower() == "eurosat":
+        dataset = datasets.EuroSAT(root=root, download=True, transform=transform)
+    elif dataset_name.lower() == "rsicb256":
+        # Example for RSI-CB256 dataset
+        dataset = datasets.ImageFolder(root=f"{root}/raw/RSI-CB256", transform=transform)
+    elif dataset_name.lower() == "patter-net":
+        # Example for PatterNet dataset
+        dataset = datasets.ImageFolder(root=f"{root}/raw/PatterNet", transform=transform)
+    else:
+        raise ValueError(f"Unknown dataset: {dataset_name}")
 
     # Split into train and test sets
     train_len = int(len(dataset) * 0.8)
@@ -33,6 +41,7 @@ def load_dataset(batch_size=32, root="data"):
     test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=False)
 
     return train_loader, test_loader
+
 
 # Latent Extraction
 
