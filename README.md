@@ -18,32 +18,26 @@ Support for popular satellite image datasets: EuroSAT, RSI-CB256, and PatternNet
 
 ## Repository Structure
 
-```Satellite_Image_Analysis_with_VAE/
-├── README.md              # Overview of the project
+```Compressive VAE for Satellite Classification/
+├── README.md              # Clear project overview
 ├── LICENSE                # Licensing information
 ├── requirements.txt       # Python dependencies
-├── notebooks/             # Jupyter notebooks for experiments
+├── data/                  # Placeholder for datasets
+│   ├── raw/               # Unprocessed data
+│   ├── processed/         # Preprocessed datasets
+├── notebooks/             # Jupyter notebooks for experiments and visualization
 │   ├── Compress_AI_models_1.ipynb
 │   ├── Compress_AI_models_2_FT.ipynb
-│   ├── Compress_AI_models.ipynb
-├── src/                   # Python scripts
-│   ├── vae.py             # Implementation of VAE architectures
-│   ├── fine_tuning.py     # Fine-tuning and training logic
-│   ├── utils.py           # Helper functions for data processing
-│   ├── evaluation.py      # Metrics and visualization tools
-├── data/                  # Placeholder for datasets
-│   ├── EuroSAT/           # Processed dataset
-│   ├── raw/               # Raw dataset (unprocessed)
-├── results/               # Directory for results
-│   ├── tSNE_plots/        # t-SNE visualizations
-│   ├── metrics.json       # Summary of metrics
-│   ├── reconstructed_images/
-├── docs/                  # Documentation
-│   ├── publication.md     # Link to the paper and context
-│   ├── usage.md           # Instructions for usage
-│   ├── architecture.png   # Model architecture diagrams
-└── .gitignore             # Files to ignore in the repository
-```
+│   ├── Plots.ipynb
+├── results/               # Outputs (e.g., t-SNE plots, metrics, reconstructed images)
+├── src/                   # Source code for modular components
+│   ├── models.py          # Model definitions (e.g., CompressAI, classifiers)
+│   ├── train.py           # Training and evaluation workflows
+│   ├── fine_tuning.py     # Fine-tuning VAE models
+│   ├── utils.py           # Helper functions (e.g., data loaders, visualization)
+├── tests/                 # Unit tests for ensuring code reliability
+└── .gitignore             # Ignored files and folders
+
 
 ## Installation
 
