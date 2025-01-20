@@ -110,7 +110,7 @@ We evaluated the performance of various neural compression models and classifica
 - **Reconstruction Quality**: Metrics demonstrate significant improvement in PSNR and F1 scores with neural compression models compared to traditional methods.
 
 - **t-SNE Visualization**:
-  Below is a t-SNE visualization for the latent spaces of **bmshj2018 hyperprior**:
+  Below is a t-SNE visualization for the latent spaces of **cheng2020 attn**:
 
   ![t-SNE Visualization](results/images/cheng_2020_attn_6.png)
 
