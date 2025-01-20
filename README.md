@@ -6,6 +6,7 @@ This repository contains the implementation of the methodologies described in ou
 
 In this study, we propose using latent representations from Variational Autoencoders (VAEs) directly for downstream machine learning tasks like classification, without requiring explicit reconstruction. Our experiments demonstrate significant improvements in classification performance while maintaining efficient compression and reconstruction quality.
 
+- Full paper can be found at https://ieeexplore.ieee.org/abstract/document/10810431
 ## Features
 
 Implementation of neural compression models using advanced Variational Autoencoder architectures.
