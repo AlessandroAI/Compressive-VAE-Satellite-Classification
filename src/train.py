@@ -66,25 +66,31 @@ if __name__ == "__main__":
     batch_size = 32
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # Load dataset
-    train_loader, val_loader = load_dataset(batch_size=batch_size)
+   # Load dataset
+train_loader, val_loader = load_dataset(dataset_name, batch_size=batch_size)
 
-    # Load pre-trained VAE and extract latent representations
-    vae_model = get_pretrained_vae(model_name='bmshj2018_hyperprior', quality=5).to(device)
-    vae_model.eval()
+# Load pre-trained VAE and extract latent representations
+vae_model = get_pretrained_vae(model_name='bmshj2018_hyperprior', quality=5).to(device)
+vae_model.eval()
 
-    # Extract latents for training and validation
-    train_latents, train_labels = extract_latents(vae_model, train_loader, device)
-    val_latents, val_labels = extract_latents(vae_model, val_loader, device)
+# Extract latents for training and validation
+train_latents, train_labels = extract_latents(vae_model, train_loader, device)
+val_latents, val_labels = extract_latents(vae_model, val_loader, device)
 
-    # Prepare DataLoaders for latent space
-    train_data = torch.utils.data.TensorDataset(torch.tensor(train_latents, dtype=torch.float32), torch.tensor(train_labels, dtype=torch.long))
-    val_data = torch.utils.data.TensorDataset(torch.tensor(val_latents, dtype=torch.float32), torch.tensor(val_labels, dtype=torch.long))
-    train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
-    val_loader = torch.utils.data.DataLoader(val_data, batch_size=batch_size, shuffle=False)
+# Prepare DataLoaders for latent space
+train_data = torch.utils.data.TensorDataset(
+    torch.tensor(train_latents, dtype=torch.float32), 
+    torch.tensor(train_labels, dtype=torch.long)
+)
+val_data = torch.utils.data.TensorDataset(
+    torch.tensor(val_latents, dtype=torch.float32), 
+    torch.tensor(val_labels, dtype=torch.long)
+)
+train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
+val_loader = torch.utils.data.DataLoader(val_data, batch_size=batch_size, shuffle=False)
 
-    # Classification model
-    classifier = TransformerClassifier(input_dim=latent_dim, num_classes=num_classes)
+# Classification model
+classifier = TransformerClassifier(input_dim=latent_dim, num_classes=num_classes)
 
-    # Train the classifier
-    train_model(classifier, train_loader, val_loader, epochs, device)
+# Train the classifier
+train_model(classifier, train_loader, val_loader, epochs, device)
