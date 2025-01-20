@@ -29,13 +29,12 @@ Support for popular satellite image datasets: EuroSAT, RSI-CB256, and PatternNet
 │   ├── Compress_AI_models_1.ipynb
 │   ├── Compress_AI_models_2_FT.ipynb
 │   ├── Plots.ipynb
-├── results/               # Outputs (e.g., t-SNE plots, metrics, reconstructed images)
+├── results/               # Outputs (e.g., t-SNE plots, metrics, reconstructed images all in Tensorboard format)
 ├── src/                   # Source code for modular components
 │   ├── models.py          # Model definitions (e.g., CompressAI, classifiers)
 │   ├── train.py           # Training and evaluation workflows
 │   ├── fine_tuning.py     # Fine-tuning VAE models
 │   ├── utils.py           # Helper functions (e.g., data loaders, visualization)
-├── tests/                 # Unit tests for ensuring code reliability
 └── .gitignore             # Ignored files and folders
 ```
 
