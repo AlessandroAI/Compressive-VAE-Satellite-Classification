@@ -23,8 +23,7 @@ Support for popular satellite image datasets: EuroSAT, RSI-CB256, and PatternNet
 ├── LICENSE                # Licensing information
 ├── requirements.txt       # Python dependencies
 ├── data/                  # Placeholder for datasets
-│   ├── raw/               # Unprocessed data
-│   ├── processed/         # Preprocessed datasets
+│   ├── README.md               # Unprocessed data
 ├── notebooks/             # Jupyter notebooks for experiments and visualization
 │   ├── Compress_AI_models_1.ipynb
 │   ├── Compress_AI_models_2_FT.ipynb
