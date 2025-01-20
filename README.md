@@ -42,8 +42,9 @@ Support for popular satellite image datasets: EuroSAT, RSI-CB256, and PatternNet
 
 Clone the repository:
 
-git clone https://github.com/AlessandroAI/Compressive_VAE_Satellite_Classification
-cd Satellite-Image-Analysis-with-VAE
+git clone https://github.com/AlessandroAI/Compressive_VAE_Satellite_Classification.git
+
+cd Compressive_VAE_Satellite_Classification
 
 Install dependencies:
 
