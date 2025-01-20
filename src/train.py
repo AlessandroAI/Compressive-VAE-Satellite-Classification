@@ -60,7 +60,7 @@ def validate_model(classifier, val_loader, device):
 
 if __name__ == "__main__":
     # Hyperparameters
-    latent_dim = 192
+    latent_dim = 192 ### Have to be adjusted based on quality level and model type
     num_classes = 10
     epochs = 10
     batch_size = 32
