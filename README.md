@@ -37,7 +37,7 @@ Support for popular satellite image datasets: EuroSAT, RSI-CB256, and PatternNet
 │   ├── utils.py           # Helper functions (e.g., data loaders, visualization)
 ├── tests/                 # Unit tests for ensuring code reliability
 └── .gitignore             # Ignored files and folders
-
+```
 
 ## Installation
 
