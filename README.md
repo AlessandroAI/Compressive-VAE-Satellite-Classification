@@ -42,7 +42,7 @@ Support for popular satellite image datasets: EuroSAT, RSI-CB256, and PatternNet
 
 Clone the repository:
 
-git clone https://github.com/your_username/Satellite_Image_Analysis_with_VAE.git
+git clone https://github.com/AlessandroAI/Compressive_VAE_Satellite_Classification
 cd Satellite_Image_Analysis_with_VAE
 
 Install dependencies:
@@ -100,12 +100,16 @@ Example reconstruction images are provided in the results/reconstructed_images/ 
 
 If you use this repository, please cite our paper:
 
-@article{YourArticle,
-  title={Optimizing Satellite Image Analysis: Leveraging Variational Autoencoders for Direct Classification},
-  author={Alessandro Giuliano, S. Andrew Gadsden, John Yawney},
-  journal={IEEE Transactions on Geoscience and Remote Sensing},
-  year={2025}
-}
+@ARTICLE{10810431,
+  author={Giuliano, Alessandro and Andrew Gadsden, S. and Yawney, John},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={Optimizing Satellite Image Analysis: Leveraging Variational Autoencoders Latent Representations for Direct Integration}, 
+  year={2025},
+  volume={63},
+  number={},
+  pages={1-23},
+  keywords={Image coding;Satellite images;Data models;Image reconstruction;Transform coding;Machine learning;Satellites;Hyperspectral imaging;Data compression;Computational modeling;Neural compression;remote sensing;variational autoencoders (VAEs)},
+  doi={10.1109/TGRS.2024.3520879}}
 
 ## License
 
