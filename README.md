@@ -111,14 +111,13 @@ We evaluated the performance of various neural compression models and classifica
 - **t-SNE Visualization**:
   Below is a t-SNE visualization for the latent spaces of **bmshj2018 hyperprior**:
 
-  ![t-SNE Visualization](path/to/tsne_visualization.png)
+  ![t-SNE Visualization](results/images/cheng_2020_attn_6.png)
 
 - **Reconstructed Images**:
   Example comparison of original and reconstructed images:
 
-  | Original Image                      | Reconstructed Image                  |
-  |-------------------------------------|--------------------------------------|
-  | ![Original](path/to/original.png)   | ![Reconstructed](path/to/reconstructed.png) |
+  ![Original vs Reconstructed](results/images/original_vs_reconstructed.png)
+
 
 #### Ablation Studies
 - Variations in loss weighting parameters (e.g., λclass, λbpp) show:
